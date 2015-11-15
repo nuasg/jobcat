@@ -1,4 +1,5 @@
 // app/routes.js
+var Job = require('./models/job');
 
 module.exports = function(app) {
 	// simple one-page app

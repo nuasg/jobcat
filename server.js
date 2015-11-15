@@ -18,11 +18,11 @@ app.use(morgan('dev'));
 
 // database
 var mongoose = require('mongoose');
-var db = require('./app/db.js');
+var db = require('./app/db');
 mongoose.connect(db.url);
 
 // routing
-require('./app/routes.js')(app);
+require('./app/routes')(app);
 
 app.listen(port);
 console.log("APP LISTENING: PORT " + port);
