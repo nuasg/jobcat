@@ -16,6 +16,11 @@ app.set('view engine', 'html');
 app.engine('html', require('ejs').renderFile);
 app.use(morgan('dev'));
 
+// database
+var mongoose = require('mongoose');
+var db = require('./app/db.js');
+mongoose.connect(db.url);
+
 // routing
 require('./app/routes.js')(app);
 
