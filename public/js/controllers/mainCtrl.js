@@ -2,9 +2,9 @@
 
 var app = angular.module('mainController', []);
 
-app.controller('mainController', function($scope) {
-	console.log('Works');
-
+app.controller('mainController', function($scope, $http) {
+	//console.log('Works');
+	$scope.newJob = {};
 	$scope.jobs = [
 	 {
 	 	'title': 'Test',
@@ -21,4 +21,19 @@ app.controller('mainController', function($scope) {
 	 	'description': 'description'
 	 }
 	];
+
+	$scope.addJob = function() {
+		console.log($scope.newJob.description);
+		$http.post('/api/jobs', $scope.newJob)
+			.success(function(data){
+				console.log(data);
+				//localStorage.attempt = true;
+				//window.location.reload(true);
+			})
+			.error(function(data, status, headers, config){
+				console.log(status);
+			});
+
+		$scope.newJob = {};
+	};
 });

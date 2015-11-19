@@ -27,9 +27,9 @@
 <body ng-controller="mainController">
     <div class="container create-job">
         <div class="form-group">
-          <label for="job">Job:</label>
-          <input type="text" class="form-control" id="job">
-          <input type="submit" class="btn btn-primary pull-right" value="Submit Job" />
+          <label for="job">Job Description:</label>
+          <input ng-model="newJob.description" type="text" class="form-control" id="job">
+          <input type="submit" class="btn btn-primary pull-right" value="Submit Job" ng-click="addJob()" />
         </div>
 
         <div class="job-feed">
